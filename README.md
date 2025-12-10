@@ -1,125 +1,106 @@
-# Bus Reservation System
+🚍 Bus Reservation System (Java + MySQL)
 
-A simple **Java-based Bus Reservation System** that allows users to book, cancel, and view seat reservations for buses. This project is designed to help beginners understand core Java concepts like Object-Oriented Programming (OOP), Collections, and Exception Handling.
+A simple console-based Bus Reservation System built using Java, JDBC, and MySQL.
+Users can view available buses, check seat availability, and book seats based on journey date.
 
-## Features
+📌 Features
 
-1. **View All Buses**: Display the list of available buses with their IDs and capacities.
-2. **View Available Seats**: Check the available seats for a specific bus.
-3. **Book a Seat**: Reserve a seat by entering passenger details (name, phone number).
-4. **Cancel a Seat**: Cancel a seat reservation by providing the seat number.
-5. **View All Bookings**: Display all bookings for a specific bus.
+Display all available buses (AC / Non-AC + Capacity)
 
----
+Book a ticket with passenger name, bus number, and date
 
-## Technologies Used
+Check seat availability before booking
 
-- **Language**: Java
-- **Core Concepts**: Object-Oriented Programming (OOP), Collections (`HashMap`, `ArrayList`), Exception Handling.
-- **Tools**: Any Java IDE (e.g., IntelliJ IDEA, Eclipse) or a text editor with `javac` and `java` commands.
+Insert bookings into MySQL database
 
----
+JDBC-based database connectivity
 
-## Project Structure
+Modular code using DAO classes
 
-The project is divided into the following classes:
+🛠️ Technologies Used
 
-1. **Passenger**:
-   - Stores details about passengers (name, phone number, seat number).
-   - Overrides `toString()` to display passenger details.
+Java (Core Java, OOP, JDBC)
 
-2. **Bus**:
-   - Represents a bus with an ID, capacity, and seat reservations.
-   - Contains methods for booking, canceling, and displaying seats.
+MySQL Database
 
-3. **BusReservationSystem**:
-   - The main class that interacts with users via a menu-driven interface.
-   - Manages multiple buses and provides options to book, cancel, and view reservations.
+JDBC Driver
 
----
+PreparedStatement / Statement
 
-## How to Run
+🗄️ Database Structure
+1️⃣ bus table
+Column	Type
+busno	INT (PK)
+ac	BOOLEAN
+capacity	INT
+Example:
+CREATE TABLE bus (
+  busno INT PRIMARY KEY,
+  ac BOOLEAN,
+  capacity INT
+);
 
-1. Clone this repository:
+2️⃣ booking table
+Column	Type
+passengername	VARCHAR(50)
+busno	INT
+journey_date	DATE
+Example:
+CREATE TABLE booking (
+  passengername VARCHAR(50),
+  busno INT,
+  journey_date DATE
+);
 
-   ```bash
-   git clone https://github.com/your-username/bus-reservation-system.git
-   cd bus-reservation-system
-   ```
+▶️ How to Run the Project
+1. Clone the repository
+git clone https://github.com/your-username/your-repo.git
 
-2. Compile the code:
+2. Open the project in any Java IDE
 
-   ```bash
-   javac BusReservationSystem.java
-   ```
+IntelliJ IDEA
 
-3. Run the program:
+Eclipse
 
-   ```bash
-   java BusReservationSystem
-   ```
+VS Code with Java pack
 
----
+3. Add MySQL JDBC driver (if not already added)
 
-## Sample Interaction
+Ensure mysql-connector-j.jar is added to the classpath.
 
-1. View all buses:
-   ```
-   ==== Bus Reservation System ====
-   1. View All Buses
-   Bus ID: Bus101, Capacity: 10
-   Bus ID: Bus102, Capacity: 15
-   ```
+4. Configure your MySQL connection
 
-2. Book a seat:
-   ```
-   Enter Bus ID: Bus101
-   Enter Seat Number to Book: 3
-   Enter Passenger Name: John Doe
-   Enter Phone Number: 1234567890
-   Seat 3 successfully booked for John Doe.
-   ```
+In DBConnection.java, update:
 
-3. View available seats:
-   ```
-   Enter Bus ID: Bus101
-   Available seats: 1, 2, 4, 5...
-   ```
+private static final String url = "jdbc:mysql://localhost:3306/bus_reservation";
+private static final String username = "root";
+private static final String password = "your_password";
 
-4. Cancel a seat:
-   ```
-   Enter Bus ID: Bus101
-   Enter Seat Number to Cancel: 3
-   Seat 3 successfully canceled.
-   ```
+5. Run the program
 
----
+Run:
 
-## Future Enhancements
+BusDemo.java
 
-1. **Persistent Storage**: Add File I/O to save reservations and retrieve them after restarting the program.
-2. **Graphical Interface**: Implement a GUI using JavaFX or Swing.
-3. **Database Integration**: Use JDBC to connect to a database for managing buses and reservations.
-4. **Web Application**: Develop a web-based system using Java Spring Boot.
+🎮 Sample Workflow
 
----
+System displays all available buses.
 
-## License
+User enters:
 
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it.
+Passenger Name
 
----
+Bus No
 
-## Contributing
+Journey Date (dd-MM-yyyy)
 
-Contributions are welcome! Please open an issue or submit a pull request with your improvements or suggestions.
+System checks availability.
 
----
+If seats are free → Booking confirmed.
 
-## Contact
+Otherwise → Informs "Bus is Full".
 
-For any questions or feedback, please reach out to [your-email@example.com](mailto:your-email@example.com).
+🙌 Author
 
-Happy Coding!
-
-
+Arun Siva
+Java Developer | Data Structures | MySQL | JDBC
