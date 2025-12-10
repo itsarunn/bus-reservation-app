@@ -4,29 +4,19 @@ A simple console-based Bus Reservation System built using Java, JDBC, and MySQL.
 Users can view available buses, check seat availability, and book seats based on journey date.
 
 📌 Features
-
-Display all available buses (AC / Non-AC + Capacity)
-
-Book a ticket with passenger name, bus number, and date
-
-Check seat availability before booking
-
-Insert bookings into MySQL database
-
-JDBC-based database connectivity
-
-Modular code using DAO classes
+    > Display all available buses (AC / Non-AC + Capacity)
+    > Book a ticket with passenger name, bus number, and date
+    > Check seat availability before booking
+    > Insert bookings into MySQL database
+    > JDBC-based database connectivity
+    > Modular code using DAO classes
 
 🛠️ Technologies Used
-
-Java (Core Java, OOP, JDBC)
-
-MySQL Database
-
-JDBC Driver
-
-PreparedStatement / Statement
-
+    # Java (Core Java, OOP, JDBC)
+    # MySQL Database
+    # JDBC Driver
+    # PreparedStatement / Statement
+_____________________________________________________________________________________
 🗄️ Database Structure
 1️⃣ bus table
 Column	Type
@@ -51,55 +41,51 @@ CREATE TABLE booking (
   busno INT,
   journey_date DATE
 );
-
+____________________________________________________________________________________
 ▶️ How to Run the Project
 1. Clone the repository
-git clone https://github.com/your-username/your-repo.git
 
 2. Open the project in any Java IDE
 
-IntelliJ IDEA
+    IntelliJ IDEA
 
-Eclipse
+    Eclipse
 
-VS Code with Java pack
+    VS Code with Java pack
 
 3. Add MySQL JDBC driver (if not already added)
 
-Ensure mysql-connector-j.jar is added to the classpath.
+    Ensure mysql-connector-j.jar is added to the classpath.
 
 4. Configure your MySQL connection
 
-In DBConnection.java, update:
+    In DBConnection.java, update:
 
-private static final String url = "jdbc:mysql://localhost:3306/bus_reservation";
-private static final String username = "root";
-private static final String password = "your_password";
+    private static final String url = "jdbc:mysql://localhost:3306/bus_reservation";
+    private static final String username = "root";
+    private static final String password = "your_password";
 
 5. Run the program
 
 Run:
-
 BusDemo.java
 
+____________________________________________________________________________________
 🎮 Sample Workflow
 
-System displays all available buses.
+1. System displays all available buses.
 
-User enters:
+2. User enters:
+    Passenger Name
+    Bus No
+    Journey Date (dd-MM-yyyy)
 
-Passenger Name
+3. System checks availability.
 
-Bus No
+4. If seats are free → Booking confirmed.
 
-Journey Date (dd-MM-yyyy)
-
-System checks availability.
-
-If seats are free → Booking confirmed.
-
-Otherwise → Informs "Bus is Full".
-
+5. Otherwise → Informs "Bus is Full".
+____________________________________________________________________________________
 🙌 Author
 
 Arun Siva
